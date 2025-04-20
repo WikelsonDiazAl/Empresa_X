@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+</head>
+<body>
+    <h1 id="bienvenida">Bienvenido</h1>
+    <script>
+        console.log("Cargando index.html");
+
+        // Obtener el usuario de localStorage
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        console.log("Usuario cargado:", usuario); // Depuración
+
+        if (usuario) {
+            document.getElementById("bienvenida").textContent = `Bienvenido ${usuario.nombre}, eres un ${usuario.tipo_usuario}`;
+        } else {
+            console.warn("No hay usuario autenticado, redirigiendo...");
+            window.location.href = "../login.html";
+        }
+    </script>
+</body>
+</html>
